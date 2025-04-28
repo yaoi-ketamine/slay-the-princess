@@ -1,0 +1,113 @@
+@font-face {
+    font-family: "East Sea Dokdo";
+    src: url('EastSeaDokdo-Regular.ttf');
+}
+@font-face {
+    font-family: "Amatic SC";
+    src: url('AmaticSC-Bold.ttf');
+}
+@font-face {
+    font-family: "Kelmscott Roman NF";
+    src: url('KelmscottRomanNF.ttf');
+}
+.name {
+    font-size: 1.05em;
+    padding-bottom: 0.1em;  
+    font-weight: bold;    
+}
+
+body {
+    font-family: "Verdana";
+    color: white;
+    font-size: 1.5em;
+    -webkit-text-stroke: 0.025em #000000;
+    background: rgb(54, 51, 51);
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    
+}
+.option {
+    font-family: "Kelmscott Roman NF";
+    font-size: 1.2em;
+    color: #ffffff;
+    font-style: italic;
+    font-weight: bold;
+    -webkit-text-stroke: 0.015em #000000;
+    text-align: left;
+    padding-bottom: 0.5em;
+}
+.princess_darkpink {
+    font-family: "East Sea Dokdo";
+    color: #f23f45;
+    font-size: 1.8em;
+    -webkit-text-stroke: 0.01em #a12628;
+}
+.princess_lightpink {
+    font-family: "Amatic SC";
+    font-weight: bold;
+    color: #fbdae3;
+    -webkit-text-stroke: 0.3px #854048;
+}
+.choice {
+    font-family: "Kelmscott Roman NF";
+    font-size: 1.2em;
+    color: #ffffff;
+    font-style: italic;
+    font-weight: bold;
+    -webkit-text-stroke: 0.015em #000000;
+    text-align: left;
+    width: 80%
+}
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+a:hover {
+    font-family: "Kelmscott Roman NF";
+    color: #a44042;
+    font-style: italic;
+    font-weight: bold;
+    -webkit-text-stroke: 0.4px #000000;
+}
+.long_quiet {
+    font-family: "East Sea Dokdo";
+    color: #ffffff;
+    font-size: 2em;
+    -webkit-text-stroke: 0.015em #000000;
+}
+
+.note {
+    font-style: italic;
+    text-align: left;
+    padding-bottom: 1em;
+}
+
+.cant_pick {
+    color: rgb(34, 34, 34);
+}
+
+button {
+    margin-left: 0.5em;
+    color: rgb(175, 164, 164);
+    font-size: 1em;
+    -webkit-text-stroke: 0.02em #000000;
+    background: rgb(36, 34, 34);
+    border: none;
+    font-style: italic;
+}
+.note_wrap {
+    background-color:rgb(36, 34, 34);
+    border-style: solid;
+    border-color:rgb(109, 103, 103);
+    border-width: 0.05em;
+    padding-top:0.5em;
+    padding-left:0.5em;
+    margin-bottom:1em;
+}
+.title {
+    font-family: "Kelmscott Roman NF";
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    -webkit-text-stroke: 0.02em #000000;
+}
