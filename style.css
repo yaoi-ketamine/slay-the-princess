@@ -171,12 +171,12 @@ body {
     text-align: center;
     grid-column-start: 1;
     grid-column-end: 3;
-    margin-top: 1em;
 }
 
 button {
     background: none;
     border: none;
+    align-self: start;
 }
 
 .multiple-title {
@@ -211,8 +211,6 @@ button.note {
     font-size: 1.1em;
     color: rgb(192, 165, 165);
     -webkit-text-stroke: 0.025em rgb(87, 69, 69);
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
     font-family: "Kelmscott Roman NF";
     font-style: italic;
     padding-left: 1.2em;
@@ -232,15 +230,14 @@ button.note {
     padding-bottom: 0.75em;
     margin-bottom: 1em;
     border-radius: 15px;
-    margin-top: 2.5em;
 }
 
 .note-text {
-    margin-top: 1em;
     margin: auto;
     grid-column-start: 1;
     grid-column-end: 3;
     width: 88%;
+    padding-bottom: 0.75em;
 }
 
 hr {

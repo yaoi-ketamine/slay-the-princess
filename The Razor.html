@@ -12,11 +12,29 @@
                 button.innerText = "Show";
             }
         }
+
+        function openText(divText) {
+            
+            var div = document.getElementById(divText + "_text");
+            div.style.display = "block"
+
+            div = document.getElementById(divText + "_button");
+            div.innerText = "Hide"
+        }
+
+        function closeText(divText) {
+            
+            var div = document.getElementById(divText + "_text");
+            div.style.display = "none"
+
+            div = document.getElementById(divText + "_button");
+            div.innerText = "Show"
+        }
     </script>
 </head>
 
 <body>
-    <div class="background-princess" style="background-image: url('images/clarity.png');"> 
+    <div class="background-princess" style="background-image: url('images/razor.webp');"> 
     <div class="title">Chapter II<br>The Razor</div>
     <div class="background"> <div class="text">
 
@@ -28,17 +46,18 @@
     If you don't, it will be the end of the world.</p>
 
     <div class="choice">
-        <a href=terrible_sense_of_deja_vu>&centerdot; (Explore) I'm getting a terrible sense of deja vu.</a><br>
+        <a href=#terrible_sense_of_deja_vu>&centerdot; (Explore) I'm getting a terrible sense of deja vu.</a><br>
         <a href=#wait_hasnt_this>&centerdot; (Explore) Wait... hasn't this already happened?</a><br>
-        <a href=#no>&centerdot; (Explore) Okay, no.</a><br>
-        <a href=#but_i_died>&centerdot; (Explore) But I died! What am I doing here?</a><br>
-        &centerdot; (Explore) She's going to kill me again!<br>
+        <a href=#no onclick="openText('no')">                   &centerdot; (Explore) Okay, no.</a><br>
+        <a href=#but_i_died onclick="openText('but_i_died')">   &centerdot; (Explore) But I died! What am I doing here?</a><br>
+                                                                &centerdot; (Explore) She's going to kill me again!<br>
+        <a href=#already_slew onclick="openText('already_slew')">&centerdot; (Explore) But I already slew the Princess. Sure, she <i>also</i> killed me, but I definitely got her. Why am I here again?</a><br>
         &centerdot; [Proceed to the cabin.]<br>
         &centerdot; [Turn around and leave.]<br>
     </div>
     <hr>
     <div class="choice single" id="terrible_sense_of_deja_vu">&centerdot; (Explore) I'm getting a terrible sense of deja vu.</div>
-    
+
     <div class="name">The Narrator</div>
     A terrible sense of deja vu? No, you don't have that.
     This is the first time either of us has been here.</p>
@@ -51,12 +70,27 @@
 
     <div class="name">The Narrator</div>
     Stabbed to death? Well, you don't have to worry about that. The Princess is unarmed.</p>
+    <br>
+    <div class="note_wrap">
+        <div class="note">If the player died <b>before</b> slaying the Princess</div>
+        <button class="note" id="positive_unarmed_button" onclick="toggleText('positive_unarmed')">Show</button>
+        <div class="note-text" id="positive_unarmed_text" style="display: none;">
+            <div class="name" style="margin-top:1em">Voice of the Cheated</div>
+            Yeah, that's exactly what you told us last time. When we asked you if you were sure she didn't have a weapon on her, you said you were 'positive' she didn't.</p>
 
-    <div class="name">Voice of the Cheated</div>
-    Yeah, that's exactly what you told us last time. When we asked you if you were sure she didn't have a weapon on her, you said you were 'positive' she didn't.</p>
+            <div class="name">Voice of the Cheated</div>
+            But it turns out she did. Because when we charged her, she started stabbing us. To <i>death</i>!</p>
+        </div>
+    </div>
 
-    <div class="name">Voice of the Cheated</div>
-    But it turns out she did. Because when we charged her, she started stabbing us. To <i>death</i>!</p>
+    <div class="note_wrap">
+        <div class="note">If the player died <b>after</b> slaying the Princess</div>
+        <button class="note" id="got_up_button_button" onclick="toggleText('got_up')">Show</button>
+        <div class="note-text" id="got_up_text" style="display: none;">
+            <div class="name" style="margin-top:1em">Voice of the Cheated</div>
+            Yeah, that's exactly what you told us last time. You said this whole thing would be easy, but after we sank our blade into her heart she just got up and started stabbing us.</p>
+        </div>
+    </div>
 
     <div class="name">The Narrator</div>
     Calm down. I assure you she has no weapons, so there's no reason to fear her. You were made for this job. You'll do just fine.</p>
@@ -74,63 +108,82 @@
     Like I said, we've just met for the first time, you and I.</p>
 
     <div class="choice">
-        &centerdot; <a href=#lets_assume>(Explore) Let's assume I'm telling the truth, and all of this really did happen. Why should I listen to you? Why should I bother doing anything?</a>
-        &centerdot; [Proceed to the cabin.]
-        &centerdot; [Turn around and leave.]
+        <a href=#lets_assume>&centerdot; (Explore) Let's assume I'm telling the truth, and all of this really did happen. Why should I listen to you? Why should I bother doing anything?</a><br>
+        &centerdot; [Proceed to the cabin.]<br>
+        &centerdot; [Turn around and leave.]<br>
     </div>
     <hr>
     <div class="choice multiple-wrap" id="wait_hasnt_this">
-        <div class="multiple-title">&centerdot; (Explore) Wait... hasn't this already happened?</div>
-        <button class="option" id="wait_hasnt_this_button" style="font-style: normal;" onclick="toggleText('wait_hasnt_this')">Hide</button>
-        <div class="multiple-text" id="wait_hasnt_this_text">
-            <div class="name">The Narrator</div>
+        <div class="multiple-title">
+            &centerdot; (Explore) Wait... hasn't this already happened?
+        </div>
+        <button class="option" id="wait_hasnt_this_button" style="font-style: normal;" onclick="toggleText('wait_hasnt_this')">Show</button>
+        <div class="multiple-text" id="wait_hasnt_this_text" style="display: none;">
+            <div class="name" style="margin-top:1em">The Narrator</div>
             It hasn't. Or if it has, I certainly haven't been a part of it.
-            Like I said, we've just met for the first time, you and I.</p></div>
+            We've just met for the first time, you and I.</p></div>
     </div>
 
     <div class="choice multiple-wrap" id="no">
-        <div class="multiple-title">&centerdot; (Explore) Okay, no.</div>
+        <div class="multiple-title">
+            &centerdot; (Explore) Okay, no.
+        </div>
         <button class="option" id="no_button" style="font-style: normal;" onclick="toggleText('no')">Show</button>
         <div class="multiple-text" id="no_text" style="display: none;">
-            <div class="name">The Narrator</div>
+            <div class="name" style="margin-top:0em">The Narrator</div>
             Oh, don't you start granstanding about morals. The fate of the world is at risk right now, and the life of a mere Princess shouldn't stop you from saving us all.</p></div>
     </div>
 
     <div class="choice multiple-wrap" id="but_i_died">
-        <div class="multiple-title">&centerdot; (Explore) But I died! What am I doing here?</div>
+        <div class="multiple-title">
+            &centerdot; (Explore) But I died! What am I doing here?
+        </div>
         <button class="option" id="but_i_died_button" style="font-style: normal;" onclick="toggleText('but_i_died')">Show</button>
         <div class="multiple-text" id="but_i_died_text" style="display: none;">
-            <div class="name">The Narrator</div>
+            <div class="name" style="margin-top:1em">The Narrator</div>
             I can assure you that you're not dead. And to answer your second question, you're here to slay the Princess. I literally told you that a second ago.</p></div>
     </div>
     
     <div class="choice multiple-wrap" id="again">
-        <div class="multiple-title">&centerdot; (Explore) She's going to kill me again!</div>
+        <div class="multiple-title">
+            &centerdot; (Explore) She's going to kill me again!
+        </div>
         <button class="option" id="again_button" style="font-style: normal;" onclick="toggleText('again')">Show</button>
         <div class="multiple-text" id="again_text" style="display: none;">
-            <div class="name">The Narrator</div>
+            <div class="name" style="margin-top:1em">The Narrator</div>
             Again? People don't die twice. You haven't even met the Princess, and I hardly think she'd be capable of killing someone as skilled and courageous as yourself.</p></div>
     </div>
 
+    <div class="choice multiple-wrap" id="already_slew">
+        <div class="multiple-title">
+            &centerdot; (Explore) But I already slew the Princess. Sure, she <i>also</i> killed me, but I definitely got her. Why am I here again?
+        </div>
+        <button class="option" id="already_slew_button" style="font-style: normal;" onclick="toggleText('already_slew')">Show</button>
+        <div class="multiple-text" id="already_slew_text" style="display: none; padding-bottom:0.75em;">
+            <div class="name" style="margin-top:1em;">The Narrator</div>
+            I can assure you that you didn't slay her, and that she didn't kill you. People don't just spring back to life after dying, and the two of us are meeting for the very first time.
+        </div>
+    </div>
+
     <div class="name">Voice of the Hero</div>
-    If he doesn't remember what happened, then maybe it's best to keep it that way.</p>
+    If he doesn't remember what happened, then maybe it's best to keep it that way.
 
     <div class="name">Voice of the Cheated</div>
-    This whole thing's a crock of shit. She's just going to pull a knife out of nowhere and stab us again.</p>
+    This whole thing's a crock of shit. She's just going to pull a knife out of nowhere and stab us again.
 
     <div class="name">The Narrator</div>
-    Stabbed to death? Well, you don't have to worry about that. The Princess is unarmed.</p>
+    Stabbed to death? Well, you don't have to worry about that. The Princess is unarmed.
 
     <div class="name">Voice of the Cheated</div>
-    Yeah, that's exactly what you told us last time. When we asked you if you were sure she didn't have a weapon on her, you said you were 'positive' she didn't.</p>
+    Yeah, that's exactly what you told us last time. When we asked you if you were sure she didn't have a weapon on her, you said you were 'positive' she didn't.
 
     <div class="name">Voice of the Cheated</div>
-    But it turns out she did. Because when we charged her, she started stabbing us. To <i>death</i>!</p>
+    But it turns out she did. Because when we charged her, she started stabbing us. To <i>death</i>!
 
     <div class="name">The Narrator</div>
-    Calm down. I assure you she has no weapons, so there's no reason to fear her. You were made for this job. You'll do just fine.</p>
+    Calm down. I assure you she has no weapons, so there's no reason to fear her. You were made for this job. You'll do just fine.
     <div class="choice">
-        &centerdot; <a href=#lets_assume>(Explore) Let's assume I'm telling the truth, and all of this really did happen. Why should I listen to you? Why should I bother doing anything?</a><br>
+        <a href=#lets_assume>&centerdot; (Explore) Let's assume I'm telling the truth, and all of this really did happen. Why should I listen to you? Why should I bother doing anything?</a><br>
         &centerdot; [Proceed to the cabin.]<br>
         &centerdot; [Turn around and leave.]<br>
     </div>
@@ -138,85 +191,169 @@
     <hr>
     <div class="choice single" id="lets_assume">&centerdot; (Explore) Let's assume I'm telling the truth, and all of this really did happen. Why should I listen to you? Why should I bother doing anything?</div>
     <div class="name">The Narrator</div>
-    Those are two very different questions, but fine. I'll indulge you if that's what it takes to get you moving.
+    Those are two very different questions, but fine. I'll indulge you if that's what it takes to get you moving.</p>
 
     <div class="name">The Narrator</div>
-    Let's say for a moment that this really is the second time you've met me, or, at least, a version of me.
+    Let's say for a moment that this really is the second time you've met me, or, at least, a version of me.</p>
+
+    <br>
+    <div class="note_wrap" id="didnt_listen">
+        <div class="note">If the player shared that they died</div>
+        <button class="note" id="didnt_listen_button" onclick="toggleText('didnt_listen')">Show</button>
+        <div class="note-text" id="didnt_listen_text" style="display: none;">
+            <div class="name" style="margin-top: 1em;">The Narrator</div>
+            You died last time, which probably only happened because you didn't listen to me.
+        </div>
+    </div>
+    
+    <div class="note_wrap" id="you_died">
+        <div class="note">If the player didn't share that they died</div>
+        <button class="note" id="you_died_button" onclick="toggleText('you_died')">Show</button>
+        <div class="note-text" id="you_died_text" style="display: none;">
+            <div class="name" style="margin-top: 1em;">The Narrator</div>
+            If you're back here, I'm assuming you died, which probably only happened because you didn't listen to me.
+        </div>
+    </div>
+
+    <div class="note_wrap" id="nightmare" style="margin-left: 5%; width: 95%">
+        <div class="note">If the player died <b>before</b> slaying the Princess</div>
+        <button class="note" id="nightmare_button" onclick="toggleText('nightmare')">Show</button>
+        <div class="note-text" id="nightmare_text" style="display: none;">
+            <div class="name" style="margin-top: 1em;">Voice of the Hero</div>
+            We did exactly what you said...</p>
+
+            <div class="name" style="margin-top: 1em;">The Narrator</div>
+            Sounds to me like you probably had some kind of elaborate nightmare, in which case I shouldn't be held accountable for what supposedly happened.
+        </div>
+    </div>
+
+    <div class="note_wrap" id="sprung" style="margin-left: 5%; width: 95%">
+        <div class="note">If the player died <b>after</b> slaying the Princess</div>
+        <button class="note" id="sprung_button" onclick="toggleText('sprung')">Show</button>
+        <div class="note-text" id="sprung_text" style="display: none;">
+            <div class="name" style="margin-top: 1em;">Voice of the Hero</div>
+            We mostly listened to you. How were we supposed to know she'd spring back to life?</p>
+
+            <div class="name">The Narrator</div>
+            If she 'sprung' back to life in this hypothetical scenario, then clearly you <i>didn't</i> slay her.
+        </div>
+    </div>
 
     <div class="name">The Narrator</div>
-    If you're back here, I'm assuming you died, which probably only happened because you didn't listen to me. 
-
-    <div class="name">Voice of the Hero</div>
-    We did exactly what you said.
+    But congratulations. You've been given a chance to actually do this right.</p>
 
     <div class="name">The Narrator</div>
-    Sounds to me like you probably had some kind of elaborate nightmare, in which case I shouldn't be held accountable for what supposedly happened.
+    And I believe your other questions was something along the lines of 'what's the point of doing anything?' If you're asking that, it sound to me like you're making the rather dangerous assumption that your actions last time around didn't have any consequences.</p>
+    <br>
+    <div class="note_wrap">
+        <div class="note">If the player died <b>before</b> slaying the Princess</div> <button class="note" id="killed_by_button" onclick="toggleText('killed_by')">Show</button>
+        <div class="note-text" id="killed_by_text" style="display: none;">
+            <div class="name" style="margin-top: 1em;">Voice of the Hero</div>
+            What do you mean? Of course there weren't any consequences. We were killed by the Princess, and now everyone's right back where they started. That sounds pretty consequence-free to me.</p>
 
-    <div class="name">The Narrator</div>
-    But congratulations. You've been given a chance to actually do this right.
+            <div class="name">The Narrator</div>
+            Yes, but, in this purely hypothetical scenario, that begs the question of <i>how</i> you got back here. Did 'time' simply rewind itself, or were you instead transported to a different world entirely?</p>
 
-    <div class="name">The Narrator</div>
-    And I believe your other questions was something along the lines of 'what's the point of doing anything?' If you're asking that, it sound to me like you're making the rather dangerous assumption that your actions last time around didn't have any consequences.
+            <div class="name">The Narrator</div>
+            Had you failed to slay the Princess, what would have happened to everyone in the place you left?</p>
+        </div>
+    </div>
 
-    <div class="name">Voice of the Hero</div>
-    What do you mean? Of course there weren't any consequences.
-    We were killed by the Princess, and now everyone's right back where they started. That sounds pretty consequence-free to me.
+    <div class="note_wrap">
+        <div class="note">If the player died <b>after</b> slaying the Princess</div> <button class="note" id="we_stabbed_button" onclick="toggleText('we_stabbed')">Show</button>
+        <div class="note-text" id="we_stabbed_text" style="display: none;">
+            <div class="name" style="margin-top: 1em;">Voice of the Hero</div>
+            What do you mean? Of course there weren't any consequences. We stabbed the Princess, the Princess stabbed us, and now everyone's right back where they started. That sounds pretty consequence-free to me.</p>
 
-    <div class="name">The Narrator</div>
-    Yes, but, in this purely hypothetical scenario, that begs the question of <i>how</i> you got back here. Did 'time' simply rewind itself, or were you instead transported to a different world entirely?
+            <div class="name">The Narrator</div>
+            Yes, but, in this purely hypothetical scenario, that begs the question of <i>how</i> you got back here. Did 'time' simply rewind itself, or were you instead transported to a different world entirely?</p>
 
-    <div class="name">The Narrator</div>
-    If it's the latter, what do you think happened <i>after</i> you died?
+            <div class="name">The Narrator</div>
+            If it's the latter, what do you think happened <i>after</i> you died?</p>
 
-    <div class="name">The Narrator</div>
-    Do you think the people there lived happily ever after, or do you think that the Princess, left unhindered, brought about the end to everyone and everything, just like I told you she would?
+            <div class="name">The Narrator</div>The Narrator
+            Do you think the people there lived happily ever after, or do you think that the Princess, left unhindered, brought about the end to everyone and everything, just like I told you she would?</p>
+        </div>
+    </div>
 
     <div class="name">Voice of the Cheated</div>
     Screw this. Who cares what happened to everyone else? She's not going to play fair, so we should do what we can to save ourselves and just <i>get out of here</i>.
 
     <div class="name">The Narrator</div>
-    At least you know not to trust her, but you do realize that 'everything and everyone' includes you, right? If you turn around and leave, you're dooming yourself as well as everyone else.
+    At least you know not to trust her, but you do realize that 'everything and everyone' includes you, right? If you turn around and leave, you're dooming yourself as well as everyone else.</p>
 
-    <div class="name">Voice of the Hero</div>
-    She just caught us by surpise last time. She can't do that twice. So long as we're careful, we can win this.
+    <br>
+    <div class="note_wrap">
+        <div class="note">
+            If the player died <b>before</b> slaying the Princess
+        </div>
+        <button class="option" id="surprise_button" onclick="toggleText('surprise')">Show</button>
+        <div class="note-text" id="surprise_text" style="display: none;">
+            <div class="name" style="margin-top: 1em;">Voice of the Hero</div>
+            She just caught us by surprise last time. She can't do that twice. So long as we're careful, we can win this.</p>
+        </div>
+    </div>
+    <div class="note_wrap">
+        <div class="note">
+            If the player died <b>after</b> slaying the Princess
+        </div>
+        <button class="option" id="close_button" onclick="toggleText('close')">Show</button>
+        <div class="note-text" id="close_text" style="display: none;">
+            <div class="name" style="margin-top: 1em;">Voice of the Hero</div>
+            We were so close to finishing the job last time. She can't get the jump on us twice. If we're careful, we should be fine.</p>
+        </div>
+    </div>
 
     <div class="name">The Narrator</div>
     That's the spirit. Just keep that stiff upper lip and you'll save the world in no time at all. 
     <div class="choice">
-        &centerdot; <a href=#about_this_princess>(Explore) Let's talk about this Princess...</a>
-        &centerdot; [Proceed to the cabin.]
-        &centerdot; [Turn around and leave.]
+        &centerdot; <a href=#about_this_princess>(Explore) Let's talk about this Princess...</a><br>
+        &centerdot; [Proceed to the cabin.]<br>
+        &centerdot; [Turn around and leave.]<br>
     </div>
     <hr>
     <div class="choice single" id="about_this_princess">&centerdot; (Explore) Let's talk about this Princess...</div>
+
     <div class="name">The Narrator</div>
-    Just be quick about it.
+    Just be quick about it.</p>
+
     <div class="choice">
-        &centerdot; <a href=#who_locked_her>(Explore) All she did last time around was stab me to death. How can someone like that end the world?</a>
-        &centerdot; <a href=#who_locked_her>(Explore) Who locked her in that basement? What <b>is</b> this place?</a>
+        <a href=#who_locked_her>&centerdot; (Explore) All she did last time around was stab me to death. How can someone like that end the world?</a><br>
+        <a href=#who_locked_her>&centerdot; (Explore) Who locked her in that basement? What <b>is</b> this place?</a><br>
         &centerdot; Nevermind.
     </div>
     <hr>
-    <div class="choice single" id="all_she_did">&centerdot; (Explore) All she did last time around was stab me to death. How can someone like that end the world?</div>
+    <div class="choice single" id="all_she_did">
+        &centerdot; (Explore) All she did last time around was stab me to death. How can someone like that end the world?
+    </div>
+
     <div class="name">The Narrator</div>
-    She just can. But she's still only a Princess. You're fully up to the task that you've been given, so long as you remember that.
+    She just can. But she's still only a Princess. You're fully up to the task that you've been given, so long as you remember that.</p>
+
     <div class="choice">
-        &centerdot; <a href=#who_locked_her>(Explore) Who locked her in that basement? What <b>is</b> this place?</a>
-        &centerdot; <a href=#cagey>(Explore) You're being cagey. What aren't you telling me?</a>
-        &centerdot; <a href=#thats_all>Nevermind.</a>
+        <a href=#who_locked_her>&centerdot; (Explore) Who locked her in that basement? What <b>is</b> this place?</a><br>
+        <a href=#cagey>&centerdot; (Explore) You're being cagey. What aren't you telling me?</a><br>
+        <a href=#thats_all>&centerdot; Nevermind.</a><br>
     </div>
     <hr>
-    <div class="choice single" id="who_locked_her">&centerdot; (Explore) Who locked her in that basement? What <b>is</b> this place?</div>
+    <div class="choice single" id="who_locked_her">
+        &centerdot; (Explore) Who locked her in that basement? What <b>is</b> this place?
+    </div>
+
     <div class="name">The Narrator</div>
     <i>People</i> locked her in that basement. And I told you what this place is. It's a path in the woods. Don't overcomplicate things.
+
     <div class="choice">
-        &centerdot; <a href=#who_locked_her>(Explore) All she did last time around was stab me to death. How can someone like that end the world?</a>
-        &centerdot; <a href=#if_people_locked_her>(Explore) If people locked her away, why couldn't <b>they</b> slay her? Why is this falling on me?</a>
-        &centerdot; <a href=#cagey>(Explore) You're being cagey. What aren't you telling me?</a>
-        &centerdot; <a href=#thats_all>That's all.</a>
+        <a href=#who_locked_her>&centerdot; (Explore) All she did last time around was stab me to death. How can someone like that end the world?</a><br>
+        <a href=#if_people_locked_her>&centerdot; (Explore) If people locked her away, why couldn't <b>they</b> slay her? Why is this falling on me?</a><br>
+        <a href=#cagey>&centerdot; (Explore) You're being cagey. What aren't you telling me?</a><br>
+        <a href=#thats_all>&centerdot; That's all.</a><br>
     </div>
     <hr>
-    <div class="choice" id="if_people_locked_her">&centerdot; (Explore) If people locked her away, why couldn't <b>they</b> slay her? Why is this falling on me?</div>
+    <div class="choice single" id="if_people_locked_her">
+        &centerdot; (Explore) If people locked her away, why couldn't <b>they</b> slay her? Why is this falling on me?
+    </div>
+
     <div class="name">The Narrator</div>
     Look, I'm not supposed to say this, but it's because you're special. You're the <i>only</i> person capable of doing this. Call it a profecy if that helps, but it's just the way things are.
 
@@ -228,13 +365,18 @@
 
     <div class="name">Voice of the Cheated</div>
     If anyone's 'special' here, it's her. That was a nasty trick she pulled on us.
+
     <div class="choice">
-        &centerdot; <a href=#who_locked_her>(Explore) All she did last time around was stab me to death. How can someone like that end the world?</a>
-        &centerdot; <a href=#cagey>(Explore) You're being cagey. What aren't you telling me?</a>
-        &centerdot; <a href=#thats_all>That's all.</a>
+        <a href=#who_locked_her>    &centerdot; (Explore) All she did last time around was stab me to death. How can someone like that end the world?</a><br>
+        <a href=#cagey>             &centerdot; (Explore) You're being cagey. What aren't you telling me?</a><br>
+        <a href=#thats_all>         &centerdot; That's all.</a><br>
     </div>
+
     <hr>
-    <div class="choice single" id="cagey">&centerdot; (Explore) You're being cagey. What aren't you telling me?</div>
+    <div class="choice single" id="cagey">
+        &centerdot; (Explore) You're being cagey. What aren't you telling me?
+    </div>
+
     <div class="name">The Narrator</div>
     I've told you everything you need to know, going into more detail would just overcomplicate an otherwise very simple situation and make your job more difficult.
 
@@ -243,20 +385,31 @@
 
     <div class="name">The Narrator</div>
     That's because she's unarmed, and more than that, it's because there <i>wasn't</i> a last time.
+
     <div class="choice">
-        &centerdot; <a href=#who_locked_her>(Explore) All she did last time around was stab me to death. How can someone like that end the world?</a>
-        &centerdot; <a href=#if_people_locked_her>(Explore) If people locked her away, why couldn't <b>they</b> slay her? Why is this falling on me?</a>
-        &centerdot; <a href=#thats_all>That's all.</a>
+        <a href=#who_locked_her>        &centerdot; (Explore) All she did last time around was stab me to death. How can someone like that end the world?</a><br>
+        <a href=#if_people_locked_her>  &centerdot; (Explore) If people locked her away, why couldn't <b>they</b> slay her? Why is this falling on me?</a><br>
+        <a href=#thats_all>             &centerdot; hat's all.</a><br>
     </div>
+
     <hr>
-    <div class="choice single" id="thats_all">&centerdot; Nevermind. | &centerdot; That's all. </div> 
+    <div class="choice single" id="thats_all">
+        &centerdot; Nevermind. | &centerdot; That's all.
+    </div>
+
     <div class="name">The Narrator</div>
     Great. Now if you don't mind, the whole world is waiting with bated breath for you to save it from ruin.
+
     <div class="choice">
-        &centerdot; [Proceed to the cabin.]
-        &centerdot; [Turn around and leave.]
+        &centerdot; [Proceed to the cabin.]<br>
+        &centerdot; [Turn around and leave.]<br>
     </div>
-    <div class="choice single" id="proceed_to_the_cabin">&centerdot; [Proceed to the cabin.]</div>
+
+    <hr>
+    <div class="choice single" id="proceed_to_the_cabin">
+        &centerdot; [Proceed to the cabin.]
+    </div>
+
     <div class="name">The Narrator</div>
     A warning, before you go any further...
 
@@ -271,26 +424,35 @@
 
     <div class="name">The Narrator</div>
     Just stay focused and you'll be fine.
+
     <div class="choice">
         &centerdot; <a href=#proceed_into_the_cabin>[Proceed into the cabin.]</a>
     </div>
+
     <hr>
-    <div class="choice single" id="proceed_into_the_cabin">[Proceed into the cabin.]</div>
+    <div class="choice single" id="proceed_into_the_cabin">
+        [Proceed into the cabin.]
+    </div>
 
     <div class="name">The Narrator</div>
     The interior of the cabin is a jagged mess of warped wood and broken boards, their splintered edges as uninviting as shattered glass. The only furniture of note is a pointed table with a pristine blade perched on its edge.
 
     <div class="name">The Narrator</div>
     The blade is your implement. You'll need it if you want to do this right.
+
     <div class="choice">
-        &centerdot; <a href=#you_didnt_say_mirror>(Explore) You didn't say anything about the mirror on the wall.</a>
-        &centerdot; <a href=#cabin_different>(Explore) This whole cabin is different than last time.</a>
-        &centerdot; <a href=#approach_mirror_silent>(Explore) [Approach the mirror.]</a>
-        &centerdot; <a href=#take_the_blade>(Explore) [Take the blade.]</a>
-        &centerdot; <a href=#enter_basement_no_blade>[Enter the basement.]</a>
+        <a href=#you_didnt_say_mirror>      &centerdot; (Explore) You didn't say anything about the mirror on the wall.</a>
+        <a href=#cabin_different>           &centerdot; (Explore) This whole cabin is different than last time.</a>
+        <a href=#approach_mirror_silent>    &centerdot; (Explore) [Approach the mirror.]</a>
+        <a href=#take_the_blade>            &centerdot; (Explore) [Take the blade.]</a>
+        <a href=#enter_basement_no_blade>   &centerdot; [Enter the basement.]</a>
     </div>
+
     <hr>
-    <div class="choice single" id="cabin_different">&centerdot; (Explore) This whole cabin is different than last time.</div>
+    <div class="choice single" id="cabin_different">
+        &centerdot; (Explore) This whole cabin is different than last time.
+    </div>
+
     <div class="name">Voice of the Hero</div>
     <i>Very</i> different.
 
@@ -299,24 +461,34 @@
 
     <div class="name">The Narrator</div>
     So focus up. A lot's riding on this.
+
     <div class="choice">
         &centerdot; <a href=#you_didnt_say_mirror>(Explore) You didn't say anything about the mirror on the wall.</a>
         &centerdot; <a href=#approach_mirror_silent>(Explore) [Approach the mirror.]</a>
         &centerdot; <a href=#take_the_blade>(Explore) [Take the blade.]</a>
         &centerdot; <a href=#enter_basement_no_blade>[Enter the basement.]</a>
     </div>
+
     <hr>
-    <div class="choice single" id="approach_mirror_silent">&centerdot; (Explore) [Approach the mirror.]</div>
+    <div class="choice single" id="approach_mirror_silent">
+        &centerdot; (Explore) [Approach the mirror.]
+    </div>
+
     <div class="name">The Narrator</div>
     You walk up to the wall next to the basement door. It's a wall. There isn't much to see here.
 
     <div class="name">Voice of the Hero</div>
     What are you talking about? This isn't a wall. It's a mirror. Or at least it'll <i>be</i> a mirror once we wipe off that layer of grime.
+
     <div choice="option">
         &centerdot; <a href=#wipe_mirror_silent>[Wipe the mirror clean.]</a>
     </div>
+
     <hr>
-    <div class="wipe_mirror_silent">[Wipe the mirror clean.]</div>
+    <div class="wipe_mirror_silent">
+        [Wipe the mirror clean.]
+    </div>
+
     <div class="name">The Narrator</div>
     You reach forward and rub your hand against the cabin wall. I hope you know how ridiculous you look right now.
 
@@ -325,6 +497,7 @@
 
     <div class="name">Voice of the Cheated</div>
     And now it's gone. Yet another thing in here playing tricks on us. I hate this place.
+
     <div class="choice">
         &centerdot; <a href=#cabin_different>(Explore) This whole cabin is different than last time.</a>
         &centerdot; (Explore) [Take the blade.]
