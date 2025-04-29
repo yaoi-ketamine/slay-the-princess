@@ -1,5 +1,6 @@
 <head>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         function toggleText(divText) {
             var div = document.getElementById(divText + "_text");
@@ -17,7 +18,7 @@
 
 <body>
     <div class="background-princess" style="background-image: url('images/clarity.png');"> 
-    <div class="title">Chapter ???<br>The Moment of Clarity</div>
+    <div class="title"><div class="title-text">Chapter ???<br>The Moment of Clarity</div></div>
     <div class="background"> <div class="text">
     
     <div class="name"><div class="name">The Narrator</div></div>
@@ -483,16 +484,23 @@
     ... proceed? Proceed to where? I'm afraid you're going to have to be a little more specific.</p>
 
     <div class="note_wrap">
-    <div class="note">If the player chose to 'do nothing' before<button id="chose_do_nothing_button" onclick="toggleText('chose_do_nothing')">Hide</button></div>
-    <div class="note-text" id="chose_do_nothing_text">
-    <div class="name">Voice of the Hero</div>
-    That's another new one. How do you keep coming up with new things? I hope this works out better than nothing did.</p></div></div>
+        <div class="note">If the player chose to 'do nothing' before</div>
+        <button class="note" id="chose_do_nothing_button" onclick="toggleText('chose_do_nothing')">Hide</button>
+        <div class="note-text" id="chose_do_nothing_text">
+            <div class="name">Voice of the Hero</div>
+            That's another new one. How do you keep coming up with new things? I hope this works out better than nothing did.</p></div>
+    </div>
+    
+
 
     <div class="note_wrap">
-    <div class="note">Otherwise<button id="not_chose_nothing_button" onclick="toggleText('not_chose_nothing')">Show</button></div>
-    <div class="note-text" id="not_chose_nothing_text" style="display: none;">
-    <div class="name">Voice of the Hero</div>
-    That's a new one. Do you think it'll work?</p></div></div>
+        <div class="note">Otherwise</div>
+        <button class="note" id="not_chose_nothing_button" onclick="toggleText('not_chose_nothing')">Show</button>
+        <div class="note-text" id="not_chose_nothing_text" style="display: none;">
+            <div class="name">Voice of the Hero</div>
+            That's a new one. Do you think it'll work?</p>
+        </div>
+    </div>
 
     <div class="name">Voice of the Opportunist</div>
     Of course it'll work. He always makes the best decisions. It's why he gets to make them!</p>

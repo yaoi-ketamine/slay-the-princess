@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: "East Sea Dokdo";
     src: url('fonts/EastSeaDokdo-Regular.ttf');
@@ -39,15 +40,17 @@ a:hover {
 
 .title {
     font-family: "Kelmscott Roman NF";
-    font-size: 4em;
-    margin-bottom: 0.5em;
-    -webkit-text-stroke: 0.03em #000000;
     aspect-ratio: 2100/1200;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
     align-content: center;
-    
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.title-text {
+    max-width: 90%;
+    margin: auto;
+    font-size: 4em;
+    -webkit-text-stroke: 0.05em #000000;
 }
 
 .background-princess {
@@ -56,7 +59,9 @@ a:hover {
     background-size: cover;
     align-content: center;
     background-attachment: fixed;
+    aspect-ratio: 2100/1200;
     z-index: -5;
+    background-position: center top;
 }
 body {
     font-family: "Verdana";
@@ -66,6 +71,7 @@ body {
     text-align: center;
     margin: auto;
     text-decoration: none;
+    paint-order: stroke fill;
 }
 
 .background {
@@ -74,8 +80,12 @@ body {
     background-image: url('images/quiet.png');
     background-attachment: fixed;
     background-size: cover;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    background-position: center
 }
 
 .text {
@@ -93,6 +103,7 @@ body {
     color: #f23f45;
     font-size: 1.8em;
     -webkit-text-stroke: 0.01em #a12628;
+    margin: auto;
 }
 .princess-lightpink {
     font-family: "Amatic SC";
@@ -116,6 +127,7 @@ body {
     -webkit-text-stroke: 0.015em #000000;
     background-attachment: fixed;
     background-size: cover;
+    background-position: center;
     text-align: left;
     box-sizing: border-box;
     border-radius: 15px;
@@ -124,7 +136,7 @@ body {
     margin-top: 1.5em;
 }
 .cant-pick {
-    color: rgb(68, 67, 67);
+    color: rgb(89, 84, 84);
 }
 .choice.single {
     width: 100%;
@@ -140,9 +152,8 @@ body {
     width: 100%;
     margin-top: 0px;
     padding: 0px;
-    padding-left: 1.2em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
     margin-bottom: 1em;
     display: grid;
     grid-template-columns: 80% 20%;
@@ -162,55 +173,97 @@ body {
 }
 
 button {
-    font-size: 0.8em;
-    color: rgb(161, 147, 147);
-    font-size: 1em;
-    -webkit-text-stroke: 0em #000000;
     background: none;
     border: none;
-    float: right;
 }
+
+.multiple-title {
+    padding-left: 1.2em;
+}
+
 button.option {
     font-family: "Kelmscott Roman NF";
-    font-size: 1em;
     background: none;
+    font-size: 1em;
     text-align: right;
-    padding-right: 0.75em;
+    padding-right: 1em;
     font-style: normal;
     color: #c7bfbf;
-    font-style: italic;
     -webkit-text-stroke: 0.015em #000000;
+    margin-top: 0em;
+}
+
+button.note {
+    font-family: "Kelmscott Roman NF";
+    background: none;
+    font-size: 1.1em;
+    text-align: right;
+    padding-right: 1em;
+    font-style: normal;
+    -webkit-text-stroke: 0.025em rgb(87, 69, 69);
     margin-top: 0em;
 }
 
 .note {
     text-align: left;
-    font-size: 0.8em;
-    padding-bottom: 1em;
-    color: rgb(161, 147, 147);
-    -webkit-text-stroke: 0em #000000;
+    font-size: 1.1em;
+    color: rgb(192, 165, 165);
+    -webkit-text-stroke: 0.025em rgb(87, 69, 69);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-family: "Kelmscott Roman NF";
+    font-style: italic;
+    padding-left: 1.2em;
 }
 
 .note_wrap {
-    background-image: url('images/quiet-note2.png');
+    background-image: url('images/quiet-note.png');
     background-size: cover;
-    border-style: solid;
     background-attachment: fixed;
-    border-color:rgb(104, 94, 94);
-    border-width: 0.05em;
-    padding-top:0.5em;
-    padding-left:1em;
-    padding-right:0.5em;
-    margin-bottom:1em;
+    border-left-width: 2px;
+    border-color: rgb(192, 165, 165);
+    box-sizing: border-box;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 80% 20%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
     border-radius: 15px;
+    margin-top: 1.5em;
 }
 
 .note-text {
-    margin-right: 0.5em;
+    margin-top: 1em;
+    margin: auto;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 88%;
 }
 
 hr {
     border: none;
     background-color: rgb(71, 64, 64);
     height: 2px;
+}
+
+@media only screen and (orientation: portrait) {
+    body {
+        font-size: 1.3em;
+    }
+    .background-princess {
+        max-width: 100%;
+        background-size: contain;
+    }
+    .background {
+        width: 100%;
+        margin-left: 0px;
+        border-radius: 0;
+    }
+    .choice {
+        width: 100%;
+    }
+    .title-text {
+        font-size: 230%;
+    }
 }
