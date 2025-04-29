@@ -1,14 +1,14 @@
 @font-face {
     font-family: "East Sea Dokdo";
-    src: url('EastSeaDokdo-Regular.ttf');
+    src: url('fonts/EastSeaDokdo-Regular.ttf');
 }
 @font-face {
     font-family: "Amatic SC";
-    src: url('AmaticSC-Bold.ttf');
+    src: url('fonts/AmaticSC-Bold.ttf');
 }
 @font-face {
     font-family: "Kelmscott Roman NF";
-    src: url('KelmscottRomanNF.ttf');
+    src: url('fonts/KelmscottRomanNF.ttf');
 }
 .name {
     font-size: 1.05em;
@@ -19,23 +19,27 @@
 body {
     font-family: "Verdana";
     color: white;
-    font-size: 1.5em;
+    font-size: 1.4em;
     -webkit-text-stroke: 0.025em #000000;
-    background: rgb(54, 51, 51);
-    width: 80%;
     text-align: center;
     margin: auto;
     
 }
 .option {
     font-family: "Kelmscott Roman NF";
-    font-size: 1.2em;
+    background-image: url('images/quiet-choice.png');
+    font-size: 1.1em;
     color: #ffffff;
     font-style: italic;
-    font-weight: bold;
     -webkit-text-stroke: 0.015em #000000;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: left;
-    padding-bottom: 0.5em;
+    padding: 0.5em;
+    padding-left: 1em;
+    border-radius: 15px;
+    width: 80%;
+    margin-bottom: 1.5em;
 }
 .princess_darkpink {
     font-family: "East Sea Dokdo";
@@ -51,13 +55,18 @@ body {
 }
 .choice {
     font-family: "Kelmscott Roman NF";
-    font-size: 1.2em;
+    background-image: url('images/quiet-choice.png');
+    font-size: 1.1em;
     color: #ffffff;
     font-style: italic;
-    font-weight: bold;
     -webkit-text-stroke: 0.015em #000000;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: left;
-    width: 80%
+    padding: 1em;
+    border-radius: 15px;
+    width: 80%;
+    margin-top: 1.5em;
 }
 a {
     text-decoration: none;
@@ -67,7 +76,6 @@ a:hover {
     font-family: "Kelmscott Roman NF";
     color: #a44042;
     font-style: italic;
-    font-weight: bold;
     -webkit-text-stroke: 0.4px #000000;
 }
 .long_quiet {
@@ -78,36 +86,81 @@ a:hover {
 }
 
 .note {
-    font-style: italic;
     text-align: left;
+    font-size: 0.8em;
     padding-bottom: 1em;
+    color: rgb(161, 147, 147);
+    -webkit-text-stroke: 0em #000000;
+    
 }
 
 .cant_pick {
-    color: rgb(34, 34, 34);
+    color: rgb(68, 67, 67);
 }
 
 button {
     margin-left: 0.5em;
-    color: rgb(175, 164, 164);
+    font-size: 0.8em;
+    color: rgb(161, 147, 147);
     font-size: 1em;
-    -webkit-text-stroke: 0.02em #000000;
-    background: rgb(36, 34, 34);
+    -webkit-text-stroke: 0em #000000;
+    background: none;
     border: none;
-    font-style: italic;
+    float: right;
 }
 .note_wrap {
-    background-color:rgb(36, 34, 34);
+    background-image: url('images/quiet-note2.png');
+    background-size: cover;
     border-style: solid;
-    border-color:rgb(109, 103, 103);
+    background-attachment: fixed;
+    border-color:rgb(104, 94, 94);
     border-width: 0.05em;
     padding-top:0.5em;
-    padding-left:0.5em;
+    padding-left:1em;
+    padding-right:1em;
     margin-bottom:1em;
+    border-radius: 15px;
 }
-.title {
+ .title {
     font-family: "Kelmscott Roman NF";
-    font-size: 2.5em;
+    font-size: 4em;
     margin-bottom: 0.5em;
-    -webkit-text-stroke: 0.02em #000000;
+    -webkit-text-stroke: 0.03em #000000;
+    aspect-ratio: 2100/1200;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-content: center;
+    
+}
+
+.background-princess {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: center;
+    background-image: url('images/clarity.png');
+    background-attachment: fixed;
+    z-index: -5;
+}
+
+.background {
+    width: 88%;
+    border-radius: 20px;
+    background-image: url('images/quiet.png');
+    background-attachment: fixed;
+    background-size: cover;
+    margin: auto;
+    padding-top: 2em;
+}
+
+.text {
+    width: 88%;
+    margin: auto;
+}
+
+hr {
+    border: none;
+    background-color: rgb(14, 12, 12);
+    height: 2px;
 }
