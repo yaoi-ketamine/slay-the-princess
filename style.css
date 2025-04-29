@@ -10,50 +10,12 @@
     font-family: "Kelmscott Roman NF";
     src: url('fonts/KelmscottRomanNF.ttf');
 }
-.name {
-    font-size: 1.05em;
-    padding-bottom: 0.1em;  
-    font-weight: bold;    
-}
 
-body {
-    font-family: "Verdana";
-    color: white;
-    font-size: 1.4em;
-    -webkit-text-stroke: 0.025em #000000;
-    text-align: center;
-    margin: auto;
-    
-}
-.option {
-    font-family: "Kelmscott Roman NF";
-    background-image: url('images/quiet-choice.png');
-    font-size: 1.1em;
+a {
+    text-decoration: none!important;
     color: #ffffff;
-    font-style: italic;
-    -webkit-text-stroke: 0.015em #000000;
-    background-attachment: fixed;
-    background-size: cover;
-    text-align: left;
-    padding: 0.5em;
-    padding-left: 1em;
-    border-radius: 15px;
-    width: 80%;
-    margin-bottom: 1.5em;
 }
-.princess_darkpink {
-    font-family: "East Sea Dokdo";
-    color: #f23f45;
-    font-size: 1.8em;
-    -webkit-text-stroke: 0.01em #a12628;
-}
-.princess_lightpink {
-    font-family: "Amatic SC";
-    font-weight: bold;
-    color: #fbdae3;
-    -webkit-text-stroke: 0.3px #854048;
-}
-.choice {
+a:visited {
     font-family: "Kelmscott Roman NF";
     background-image: url('images/quiet-choice.png');
     font-size: 1.1em;
@@ -68,60 +30,14 @@ body {
     width: 80%;
     margin-top: 1.5em;
 }
-a {
-    text-decoration: none;
-    color: #ffffff;
-}
 a:hover {
     font-family: "Kelmscott Roman NF";
     color: #a44042;
     font-style: italic;
     -webkit-text-stroke: 0.4px #000000;
 }
-.long_quiet {
-    font-family: "East Sea Dokdo";
-    color: #ffffff;
-    font-size: 2em;
-    -webkit-text-stroke: 0.015em #000000;
-}
 
-.note {
-    text-align: left;
-    font-size: 0.8em;
-    padding-bottom: 1em;
-    color: rgb(161, 147, 147);
-    -webkit-text-stroke: 0em #000000;
-    
-}
-
-.cant_pick {
-    color: rgb(68, 67, 67);
-}
-
-button {
-    margin-left: 0.5em;
-    font-size: 0.8em;
-    color: rgb(161, 147, 147);
-    font-size: 1em;
-    -webkit-text-stroke: 0em #000000;
-    background: none;
-    border: none;
-    float: right;
-}
-.note_wrap {
-    background-image: url('images/quiet-note2.png');
-    background-size: cover;
-    border-style: solid;
-    background-attachment: fixed;
-    border-color:rgb(104, 94, 94);
-    border-width: 0.05em;
-    padding-top:0.5em;
-    padding-left:1em;
-    padding-right:1em;
-    margin-bottom:1em;
-    border-radius: 15px;
-}
- .title {
+.title {
     font-family: "Kelmscott Roman NF";
     font-size: 4em;
     margin-bottom: 0.5em;
@@ -139,13 +55,21 @@ button {
     background-repeat: no-repeat;
     background-size: cover;
     align-content: center;
-    background-image: url('images/clarity.png');
     background-attachment: fixed;
     z-index: -5;
 }
+body {
+    font-family: "Verdana";
+    color: white;
+    font-size: 1.4em;
+    -webkit-text-stroke: 0.025em #000000;
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+}
 
 .background {
-    width: 88%;
+    width: 85%;
     border-radius: 20px;
     background-image: url('images/quiet.png');
     background-attachment: fixed;
@@ -157,6 +81,132 @@ button {
 .text {
     width: 88%;
     margin: auto;
+}
+
+.name {
+    font-size: 1.05em;
+    padding-bottom: 0.1em;  
+    font-weight: bold;    
+}
+.princess-darkpink {
+    font-family: "East Sea Dokdo";
+    color: #f23f45;
+    font-size: 1.8em;
+    -webkit-text-stroke: 0.01em #a12628;
+}
+.princess-lightpink {
+    font-family: "Amatic SC";
+    font-weight: bold;
+    color: #fbdae3;
+    -webkit-text-stroke: 0.3px #854048;
+}
+.long-quiet {
+    font-family: "East Sea Dokdo";
+    color: #ffffff;
+    font-size: 2em;
+    -webkit-text-stroke: 0.015em #000000;
+}
+
+.choice {
+    font-family: "Kelmscott Roman NF";
+    background-image: url('images/quiet-choice.png');
+    font-size: 1.1em;
+    color: #ffffff;
+    font-style: italic;
+    -webkit-text-stroke: 0.015em #000000;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: left;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 1.2em;
+    width: 80%; 
+    margin-top: 1.5em;
+}
+.cant-pick {
+    color: rgb(68, 67, 67);
+}
+.choice.single {
+    width: 100%;
+    margin-top: 0px;
+    padding: 0px;
+    padding-left: 1.2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+.choice.multiple-wrap {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0px;
+    padding: 0px;
+    padding-left: 1.2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+.multiple-text {
+    width: 88%;
+    margin: auto;
+    font-size: 0.9em;
+    font-style: normal;
+    font-family: "Verdana";
+    color: white;
+    -webkit-text-stroke: 0.025em #000000;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-top: 1em;
+}
+
+button {
+    font-size: 0.8em;
+    color: rgb(161, 147, 147);
+    font-size: 1em;
+    -webkit-text-stroke: 0em #000000;
+    background: none;
+    border: none;
+    float: right;
+}
+button.option {
+    font-family: "Kelmscott Roman NF";
+    font-size: 1em;
+    background: none;
+    text-align: right;
+    padding-right: 0.75em;
+    font-style: normal;
+    color: #c7bfbf;
+    font-style: italic;
+    -webkit-text-stroke: 0.015em #000000;
+    margin-top: 0em;
+}
+
+.note {
+    text-align: left;
+    font-size: 0.8em;
+    padding-bottom: 1em;
+    color: rgb(161, 147, 147);
+    -webkit-text-stroke: 0em #000000;
+}
+
+.note_wrap {
+    background-image: url('images/quiet-note2.png');
+    background-size: cover;
+    border-style: solid;
+    background-attachment: fixed;
+    border-color:rgb(104, 94, 94);
+    border-width: 0.05em;
+    padding-top:0.5em;
+    padding-left:1em;
+    padding-right:0.5em;
+    margin-bottom:1em;
+    border-radius: 15px;
+}
+
+.note-text {
+    margin-right: 0.5em;
 }
 
 hr {
